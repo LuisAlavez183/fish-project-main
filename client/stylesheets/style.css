@@ -1,8 +1,18 @@
 body {
-    padding: 50px;
+    padding: 0px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   
+
   }
   
   a {
     color: #00B7FF;
+  }
+
+  menu{
+    background-color: rgb(207, 239, 240)
+  }
+
+  .img{
+    padding: 0 80px;
   }

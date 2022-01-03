@@ -1,10 +1,21 @@
-const express = require('express');
+//importando  router de  home
+import homeRouter from './home';
+// router  de  users
+import usersRouter from './users';
 
-const router = express.Router();
+import sesionRouter from './sesion';
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.render('index', { title: 'hola' });
-});
+/*router.use('/', homeRouter);
+router.use('/users', usersRouter);*/
 
-module.exports = router;
+const addRoutes = (app) => {
+  app.use('/', homeRouter);
+  app.use('/sesion', sesionRouter);
+  app.use('/users', usersRouter);
+
+  return app;
+};
+
+export default {
+  addRoutes,
+};

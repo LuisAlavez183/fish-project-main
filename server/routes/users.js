@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
+//importo controlador Home
+import userController from '@server/controllers/userController';
 
+const router = new Router();
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', userController.index);
 
-module.exports = router;
+export default router;

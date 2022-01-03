@@ -1,5 +1,5 @@
 body {
-    padding: 50px;
+    padding: 20px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
   
@@ -9,3 +9,6 @@ body {
 h1{
     color: #000000;
   }
+menu {
+  background-color: rgb(207, 239, 240)
+}

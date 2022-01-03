@@ -6,8 +6,10 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import winston from '@server/config/winston';
 
-import indexRouter from '@s-routes/index';
-import usersRouter from '@s-routes/users';
+// router principal
+import Router from '@server/routes/index';
+
+import configTemplateEngine from '@s-config/template-engine';
 
 // importar modulos de webpack
 import webpack from 'webpack';
@@ -48,8 +50,7 @@ if (env === 'development') {
 }
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+configTemplateEngine(app);
 
 app.use(morgan('combined', { stream: winston.stream }));
 app.use(express.json());
@@ -57,8 +58,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// enrutador principal
+Router.addRoutes(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
